@@ -34,7 +34,7 @@ jobs:
     # Build the Docker Image
     - name: Build Docker Image
       run: |
-        docker build . -t sibasish934/feature-app-frontend:${{ env.VERSION }} 
+        docker build -t sibasish934/feature-app-frontend:${{ env.VERSION }} feature-extraction-frontend-main/Dockerfile
 
     # Push the Docker Image
     - name: Push Docker Image
