@@ -3,7 +3,7 @@ name: Test and Build
 on:
   push:
     branches:
-    - front
+    - back
     paths:
     - '**/*'
 
@@ -34,26 +34,26 @@ jobs:
     # Build the Docker Image
     - name: Build Docker Image
       run: |
-        docker build -t sibasish934/feature-app-frontend:${{ env.VERSION }} -f feature-extraction-frontend-main/Dockerfile feature-extraction-frontend-main/
+        docker build . -t sibasish934/feature-app-backend:${{ env.VERSION }} 
 
     # Push the Docker Image
     - name: Push Docker Image
       run: |
-        docker push sibasish934/feature-app-frontend:${{ env.VERSION }}
+        docker push sibasish934/feature-app-backend:${{ env.VERSION }}
 
     # UPdate the K8s Manifest Files
     - name: Update K8s Manifests
       run: |
-        cat feature-extraction-frontend-main/deploy/deployment.yaml
-        sed -i "s|image: sibasish934/feature-app-frontend:.*|image: sibasish934/feature-app-frontend:${{ env.VERSION }}|g" feature-extraction-frontend-main/deploy/deployment.yaml
-        cat feature-extraction-frontend-main/deploy/deployment.yaml
+        cat deploy/deploy.yaml
+        sed -i "s|image: sibasish934/feature-app-backend:.*|image: sibasish934/feature-app-backend:${{ env.VERSION }}|g" deploy/deploy.yaml
+        cat deploy/deploy.yaml
 
     # Update Github
     - name: Commit the changes
       run: |
         git config --global user.email "<>"
         git config --global user.name "GitHub Actions Bot"
-        git checkout front
-        git add feature-extraction-frontend-main/deploy/deployment.yaml
+        git add feature-extraction-backend-main/deploy/deployment.yaml
         git commit -m "Update deploy.yaml with new image version - ${{ env.VERSION }}"
-        git push origin front
+        git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/sibasish934/optimo-capital-assignment.git
+        git push origin back

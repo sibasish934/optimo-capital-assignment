@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: feature-app-backend-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-025587594c73c0aeb, subnet-06cf4c468f292fcfa, subnet-0a25e86245cd73759
+    alb.ingress.kubernetes.io/group.name: service-group
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+  - host: "api.timepaas.xyz"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: feature-backend-svc
+            port:
+              number: 8000
