@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feature-app-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feature-app-frontend
+  template:
+    metadata:
+      labels:
+        app: feature-app-frontend
+    spec:
+      containers:
+      - name: feature-app-frontend-container
+        image: sibasish934/feature-app-frontend:v2
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: feature-app-frontend-configmap
