@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feature-app-backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feature-app-backend
+  template:
+    metadata:
+      labels:
+        app: feature-app-backend
+    spec:
+      containers:
+      - name: feature-app-backend-container
+        image: sibasish934/feature-app-backend:v2
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: feature-backend-app-secret

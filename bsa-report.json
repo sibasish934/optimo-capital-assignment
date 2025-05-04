@@ -1,0 +1,20 @@
+{
+  "average_eod": 124500.75,
+  "average_net_inflows": 9850.30,
+  "ecs_returns_count": 5,
+  "monthly_records": [
+    {
+      "date": "2025-01-31",
+      "net_inflows": 10000,
+      "net_inflows_outflows_diff": 2500
+    },
+    {
+      "date": "2025-02-28",
+      "net_inflows": 12000,
+      "net_inflows_outflows_diff": 3000
+    }
+  ]
+}
+
+
+
