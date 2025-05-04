@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: feature-app-frontend-container
-        image: sibasish934/feature-app-frontend:v2
+        image: sibasish934/feature-app-frontend:v20250504085046
         ports:
         - containerPort: 3000
         envFrom:
