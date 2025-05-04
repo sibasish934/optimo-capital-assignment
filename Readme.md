@@ -159,7 +159,7 @@ AWS Resources created by the terraform Code are:-
 
 VPC created by terraform along with Nat gateway, IGW, public and private subnets:- 
 
-![VPC created by terraform along with Nat gateway, IGW, public and private subnets](images\VPC-created-by-terraform.png)
+![VPC created by terraform along with Nat gateway, IGW, public and private subnets](images/VPC-created-by-terraform.png)
 
 PostgresSQL database created using Terraform:- 
 
