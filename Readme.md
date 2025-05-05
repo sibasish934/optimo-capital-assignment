@@ -151,7 +151,7 @@ Please find the images of the Infrastructure created by terraform over AWS cloud
 
 ![terraform apply RDS issue](images/Terraform-apply-rds-issue.png)
 
-![terraform RDS issue resolved](images/Terraform-issue-resolved.png)
+![terraform RDS issue resolved](images/Terraform-Issue-resolved.png) 
 
 ![terraform configuration validation](images/Terraform-Validate.png)
 
